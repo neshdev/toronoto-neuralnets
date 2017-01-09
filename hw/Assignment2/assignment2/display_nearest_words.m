@@ -5,7 +5,7 @@ function display_nearest_words(word, model, k)
 %   model: Model returned by the training script.
 %   k: The number of nearest words to display.
 % Example usage:
-%   display_nearest_words('school', model, 10);
+%   display_nearest_words('could', model, 10);
 
 word_embedding_weights = model.word_embedding_weights;
 vocab = model.vocab;
