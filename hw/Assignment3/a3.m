@@ -70,11 +70,11 @@ function [data_loss, data_names, class_loss, class_perf] = a3(wd_coefficient, n_
     data_loss(1,data_i) = loss_i;
     fprintf('\nThe loss on the %s data is %f\n', data_name, loss_i);
     if wd_coefficient~=0,
-      c_loss_i = loss(model, data, 0)
+      c_loss_i = loss(model, data, 0);
       class_loss(1,data_i) = c_loss_i;
       fprintf('The classification loss (i.e. without weight decay) on the %s data is %f\n', data_name, c_loss_i);
     end
-    class_perf_i = classification_performance(model, data)
+    class_perf_i = classification_performance(model, data);
     class_perf(1,data_i) = class_perf_i;
     fprintf('The classification error rate on the %s data is %f\n', data_name, class_perf_i);
   end
