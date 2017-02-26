@@ -208,6 +208,8 @@ function ret = d_loss_by_d_model(model, data, wd_coefficient)
   [a2_out, a2_cache] = affine_forward(z1_out, model.hid_to_class);
   
   [loss, dout] = cross_entropy_loss(a2_out, data.targets);
+  loss = loss + wd_coefficient * sum(model.hid_to_class .* model.hid_to_class)
+  loss = loss + wd_coefficient * sum(model.input_to_hid .* model.input_to_hid)
   
   [dz1, dW2] = affine_backward(dout, a2_cache);
   da1 = sigmoid_backward(dz1, z1_cache);
